@@ -1,0 +1,48 @@
+@import 'imports';
+@import 'helpers';
+
+span.#{$ns}-tag.#{$ns}-minimal.severity {
+	color: $white;
+	@include severities();
+}
+
+.cases-table-row {
+	@include react-transition(
+		'cases-table-row',
+		(
+			opacity: 0 1,
+		),
+		$pt-transition-duration * 3,
+		$before: '&'
+	);
+
+	&.is-flashed {
+		.cases-table-row-update {
+			animation: flash-animation 1s;
+		}
+	}
+
+	&-bed {
+		display: flex;
+		align-items: center;
+		font-weight: bold;
+
+		.bed-icon {
+			margin-right: 14px;
+		}
+
+		&.no-assigned-bed {
+			display: table-cell;
+		}
+	}
+}
+
+.td.cases-table-row {
+	&-status {
+		text-align: right;
+	}
+
+	&-hospital-status {
+		text-align: end;
+	}
+}
